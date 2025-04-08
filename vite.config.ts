@@ -33,7 +33,6 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           react: ['react', 'react-dom'],
           tanstack: ['@tanstack/react-query'],
-          ui: ['@/components/ui'],
           charts: ['recharts'],
         }
       }
