@@ -1,0 +1,283 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
+    --sidebar-bg: 220 14% 96%;
+    --sidebar-fg: 240 10% 3.9%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-hover: 220 14% 92%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 84.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-bg: 217 33% 17%;
+    --sidebar-fg: 210 40% 98%;
+    --sidebar-border: 215 28% 25%;
+    --sidebar-hover: 217 33% 23%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-purple-50 via-white to-purple-50 min-h-screen text-foreground antialiased;
+    background: linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%);
+  }
+
+  .dark body {
+    background: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  }
+
+  .glass {
+    @apply bg-white/90 backdrop-blur-lg border border-white/20 shadow-lg;
+  }
+
+  .dark .glass {
+    @apply bg-slate-800/70 backdrop-blur-lg border border-white/10 shadow-lg;
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/95 transition-all duration-300;
+  }
+
+  .dark .glass-hover {
+    @apply hover:bg-slate-700/90 transition-all duration-300;
+  }
+
+  .fade-in {
+    @apply animate-fade-in;
+  }
+
+  .slide-in {
+    @apply animate-slide-in;
+  }
+
+  .compact .p-8 {
+    @apply p-4;
+  }
+
+  .compact .text-4xl {
+    @apply text-2xl;
+  }
+
+  .compact .gap-6 {
+    @apply gap-3;
+  }
+  
+  .dark .bg-white {
+    @apply bg-slate-800;
+  }
+  
+  .dark .border-purple-100 {
+    @apply border-slate-700;
+  }
+  
+  .dark .border-purple-100\/30 {
+    @apply border-slate-700/50;
+  }
+  
+  .dark .text-gray-700 {
+    @apply text-gray-200;
+  }
+  
+  .dark .text-purple-800 {
+    @apply text-purple-300;
+  }
+  
+  .dark .text-purple-600 {
+    @apply text-purple-400;
+  }
+  
+  .dark .text-slate-700 {
+    @apply text-slate-300;
+  }
+  
+  .dark .bg-purple-100 {
+    @apply bg-purple-900/50;
+  }
+  
+  .dark .text-slate-600 {
+    @apply text-slate-300;
+  }
+  
+  .dark .bg-gradient-to-r.from-slate-100.to-blue-100 {
+    @apply from-slate-700 to-blue-900;
+  }
+  
+  .dark .bg-slate-50 {
+    @apply bg-slate-700;
+  }
+  
+  .dark .text-slate-500 {
+    @apply text-slate-400;
+  }
+  
+  .dark .bg-gray-50\/50 {
+    @apply bg-gray-800/50;
+  }
+  
+  .dark .border-gray-200 {
+    @apply border-gray-700;
+  }
+  
+  .dark .text-purple-900 {
+    @apply text-purple-300;
+  }
+  
+  .dark .text-muted-foreground {
+    @apply text-gray-400;
+  }
+  
+  .dark .bg-background {
+    @apply bg-slate-900;
+  }
+  
+  .dark button[variant="ghost"]:hover {
+    @apply bg-slate-700;
+  }
+  
+  .dark .border-r {
+    @apply border-slate-700;
+  }
+
+  .sidebar {
+    @apply bg-[hsl(var(--sidebar-bg))] text-[hsl(var(--sidebar-fg))] border-[hsl(var(--sidebar-border))];
+  }
+  
+  .sidebar-item {
+    @apply text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-hover))];
+  }
+  
+  .sidebar-item.active {
+    @apply bg-[hsl(var(--sidebar-hover))] font-medium;
+  }
+
+  .dark .sidebar {
+    @apply bg-slate-900 text-slate-100 border-slate-700;
+  }
+  
+  .dark .sidebar-item {
+    @apply text-slate-100 hover:bg-slate-800;
+  }
+  
+  .dark .sidebar-item.active {
+    @apply bg-slate-800 text-white;
+  }
+  
+  @media (max-width: 640px) {
+    .card {
+      @apply px-4 py-3;
+    }
+    
+    h1 {
+      @apply text-2xl;
+    }
+    
+    h2 {
+      @apply text-xl;
+    }
+    
+    .p-8 {
+      @apply p-4;
+    }
+    
+    .p-6 {
+      @apply p-4;
+    }
+    
+    .gap-6 {
+      @apply gap-3;
+    }
+    
+    .grid-cols-2,
+    .grid-cols-3 {
+      @apply grid-cols-1;
+    }
+    
+    .md\:grid-cols-2,
+    .md\:grid-cols-3 {
+      @apply grid-cols-1;
+    }
+    
+    table, thead, tbody, tr, th, td {
+      @apply block;
+    }
+    
+    thead tr {
+      @apply hidden;
+    }
+    
+    tbody tr {
+      @apply mb-4 border rounded-lg shadow-sm;
+    }
+    
+    td {
+      @apply flex justify-between items-center py-2 px-3 border-b last:border-b-0;
+    }
+    
+    td::before {
+      content: attr(data-label);
+      @apply font-medium text-sm text-gray-600 dark:text-gray-300;
+    }
+    
+    td:last-child {
+      @apply border-b-0;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .transaction-row {
+      @apply flex flex-col gap-2 p-3 border-b last:border-b-0;
+    }
+    
+    .transaction-cell {
+      @apply flex justify-between w-full;
+    }
+    
+    .transaction-header {
+      @apply font-medium text-sm text-gray-600 dark:text-gray-300;
+    }
+  }
+}

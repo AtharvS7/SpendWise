@@ -1,0 +1,5 @@
+
+# This file references environment variables
+# The values are loaded from .env file
+
+project_id = "veecksbtuwciwjyfokkz"
